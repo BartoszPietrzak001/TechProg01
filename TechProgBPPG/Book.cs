@@ -8,18 +8,24 @@ namespace TechProgBPPG
 {
     public class Book
     {
+        // constructor
         public Book (int ID, string title, string author)
         {
             this._ID = ID;
             this._title = title;
             this._author = author;
             Console.WriteLine("Our library has a new book in its collection: {0}, {1}, {2}", _ID, _title, _author);
+            _r = new Rent(false, "--");
+            Console.WriteLine(returnBook());
         }
+
+        // fields
         private int _ID { get; set; }
         private string _title { get; set; }
         private string _author { get; set; }
         private Rent _r { get; set; }
 
+        // get; set;
         public Rent r
         {
             get
@@ -68,8 +74,11 @@ namespace TechProgBPPG
         }
 
         public void addRent(Rent rent)
+        // methods
+        public string returnBook()
         {
             r = rent; 
+            return "A book of ID: " + _ID + " entitled: " + _title + ", author: " + _author + ", rented: " + _r.ifRented + ", expire date: " + _r.expireDate + " is in our library \n";
         }
     }
 }

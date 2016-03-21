@@ -9,8 +9,19 @@ namespace TechProgBPPG
 {
     public class Rent
     {
+        // constructor
+        public Rent(bool rented, string date)
+        {
+            _ifRented = rented;
+            _expireDate = date;
+            Console.WriteLine("A rent: {0} and its expire date: {1} was created", _ifRented, _expireDate);
+        }
+
+        // fields
         private bool _ifRented { get; set; }
         private string _expireDate{ get; set; }
+
+        // methods
         public string printRent()
         {
             return ("Book rent data: is rented: " + _ifRented.ToString() + " expire date: " + expireDate.ToString());

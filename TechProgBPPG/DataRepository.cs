@@ -9,10 +9,12 @@ namespace TechProgBPPG
 {
     public class DataRepository
     {
+        // data containers
         public List<Reader> readers;
         public Dictionary<int, Book> books;
         public ObservableCollection <Rent> rents;
         
+        // constructor
         public DataRepository()
         {
             readers = new List<Reader>();
@@ -21,6 +23,7 @@ namespace TechProgBPPG
             Console.WriteLine("Data repository of {0}, {1} and {2} created.", nameof(readers), nameof(books), nameof(rents));
         }
 
+        // create methods
         public bool Create(Reader r)
         {
             if (!readers.Contains(r)) //as not to duplicate information
@@ -57,6 +60,7 @@ namespace TechProgBPPG
             return false;
         }
 
+        // read methods
         public Reader Read (Reader r)
         {
             foreach(var reader in readers)
@@ -68,18 +72,24 @@ namespace TechProgBPPG
 
         public Book Read (int ID)
         {
-            for (int i=0; i<books.Count; i++)
+            if (books.ContainsKey(ID))
             {
-                if (books[i].ID == ID) return books[i];
+                foreach(var id in books.Keys)
+                {
+                    if (id.Equals(ID)) return books[id];
+                }
             }
             return null;
         }
 
         public Book Read (Book bk)
         {
-            for (int i = 0; i < books.Count; i++)
+            if (books.ContainsKey(bk.ID))
             {
-                if (books[i].ID == bk.ID) return books[i];
+                foreach(var id in books.Keys)
+                {
+                    if (bk.ID.Equals(id)) return books[id];
+                }
             }
             return null;
         }
@@ -93,6 +103,8 @@ namespace TechProgBPPG
             return null;
         }
 
+
+        // delete methods
         public bool Delete (Reader r)
         {
             foreach (var reader in readers)
@@ -132,6 +144,8 @@ namespace TechProgBPPG
             return false;
         }
 
+
+        // check if the operation was successful
         private void ifSuccessful(bool x)
         {
             if (x == true) Console.WriteLine("Operation finished successfully");
