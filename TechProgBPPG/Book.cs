@@ -73,11 +73,10 @@ namespace TechProgBPPG
             }
         }
 
-        public void addRent(Rent rent)
+        //public void addRent(Rent rent)
         // methods
         public string returnBook()
-        {
-            r = rent; 
+        { 
             return "A book of ID: " + _ID + " entitled: " + _title + ", author: " + _author + ", rented: " + _r.ifRented + ", expire date: " + _r.expireDate + " is in our library \n";
         }
     }

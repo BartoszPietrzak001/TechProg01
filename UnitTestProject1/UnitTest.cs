@@ -16,7 +16,6 @@ namespace UnitTestProject1
             DataRepository dr = new DataRepository();
             Reader r = new Reader("Bartosz Pietrzak", "Smetany 3", "694145623");
             Book book = new Book(1, "The Shining", "King, Stephen");
-            Rent rent = new Rent();
             Rent rent = new Rent(true, "02/05/2016");
 
             //add data to repository
@@ -39,7 +38,6 @@ namespace UnitTestProject1
             DataRepository dr = new DataRepository();
             Reader r = new Reader("Bartosz Pietrzak", "Smetany 3", "694145623");
             Book book = new Book(1, "The Shining", "King, Stephen");
-            Rent rent = new Rent();
             Rent rent = new Rent(true, "02/05/2016");
 
             //add data to repository
@@ -64,7 +62,6 @@ namespace UnitTestProject1
             DataRepository dr = new DataRepository();
             Reader r = new Reader("Bartosz Pietrzak", "Smetany 3", "694145623");
             Book book = new Book(1, "The Shining", "King, Stephen");
-            Rent rent = new Rent();
             Rent rent = new Rent(true, "03/05/2016");
 
             //add data to repository
