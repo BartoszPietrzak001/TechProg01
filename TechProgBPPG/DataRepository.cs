@@ -103,7 +103,6 @@ namespace TechProgBPPG
             return null;
         }
 
-
         // delete methods
         public bool Delete (Reader r)
         {
@@ -144,6 +143,51 @@ namespace TechProgBPPG
             return false;
         }
 
+        // filter methods
+        public Dictionary<int, Book> FilterBooks (string bookAuthor)
+        {
+            Dictionary<int, Book> bks = new Dictionary<int, Book>();
+            foreach (var book in books)
+            {
+                if (book.Value.author.Equals(bookAuthor)) bks.Add(book.Key, book.Value);
+                
+            }
+            if (bks.Count != 0) return bks;
+            else return null;
+        }
+
+        public List<Reader> FilterReaders(string telNr)
+        {
+            List<Reader> filteredReaders = new List<Reader>();
+            foreach (var reader in readers)
+            {
+                if (reader.NrTel.Equals(telNr)) filteredReaders.Add(reader);
+            }
+            if (filteredReaders.Count != 0) return filteredReaders;
+            else return null;
+        }
+
+        // show filtered containers
+        public string showFilteredBooks(Dictionary<int, Book> books)
+        {
+            int i = 1;
+            string answer = "";
+            foreach (var book in books)
+            {
+                answer += i.ToString() + ". Title: " + book.Value.title + ", Author: " + book.Value.author + "\n";
+                i++;
+            }
+            return answer;
+        }
+
+        public string showFilteredReaders(List<Reader> readers)
+        {
+            string answer = "";
+            for (int i = 0; i < readers.Count; i++)
+                answer += (i + 1).ToString() + ". Name and surname: " + readers[i].NameSurname + ", Adress: " + readers[i].Adress + ", Telephone Number: " +
+                    readers[i].NrTel; // + ", Rented books: \n";
+            return answer;
+        }
 
         // check if the operation was successful
         private void ifSuccessful(bool x)

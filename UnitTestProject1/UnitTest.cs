@@ -106,6 +106,81 @@ namespace UnitTestProject1
                 if (reader.NameSurname == r.NameSurname) Assert.IsTrue(reader.addBook(book));
             }
         }
+        [TestMethod]
+        public void FilterTest()
+        {
+            // create a dispository
+            DataRepository dr = new DataRepository();
+
+            // create data
+            Book book = new Book(1, "The Shining", "King, Stephen");
+            Book book1 = new Book(2, "Pet Cemetery", "King, Stephen");
+            Book book2 = new Book(3, "Symfonia C++", "Grebosz, Jerzy");
+
+            // add data to the repository
+            dr.Create(book);
+            dr.Create(book1);
+            dr.Create(book2);
+
+            // create a list of books (capacity = 2 --> 2 books expected in a list returned by Filter method)
+            Dictionary<int, Book> bks = new Dictionary<int, Book>(2);
+            bks.Add(book.ID, book);
+            bks.Add(book1.ID, book1);
+
+            // expected value: true
+            Assert.AreEqual(dr.FilterBooks("King, Stephen").Count, 2);
+            Assert.AreEqual(dr.FilterBooks("Barker, Steve"), null);
+        }
+        [TestMethod]
+        public void showFilteredBooksTest()
+        {
+            // create a dispository
+            DataRepository dr = new DataRepository();
+
+            // create data
+            Book book = new Book(1, "The Shining", "King, Stephen");
+            Book book1 = new Book(2, "Pet Cemetery", "King, Stephen");
+            Book book2 = new Book(3, "Symfonia C++", "Grebosz, Jerzy");
+
+            // add data to the repository
+            dr.Create(book);
+            dr.Create(book1);
+            dr.Create(book2);
+
+            // create a dictionary of books
+            Dictionary<int, Book> bks = new Dictionary<int, Book>();
+
+            // assign thr result of the FilterBooks function to the new Dictionary
+            bks = dr.FilterBooks("Grebosz, Jerzy");
+
+            // expected value: true
+            Assert.AreEqual(dr.showFilteredBooks(bks), "1. Title: Symfonia C++, Author: Grebosz, Jerzy\n");
+        }
+        [TestMethod]
+        public void showFilteredReadersTest()
+        {
+            // create a dispository
+            DataRepository dr = new DataRepository();
+
+            // create data
+            Reader reader = new Reader("Bartosz Pietrzak", "Smetany 99", "694694694");
+            Reader reader1 = new Reader("Przemyslaw Gesieniec", "Osterwy 152", "694954694");
+            Reader reader2 = new Reader("Bartosz Pietrzak", "Smetany 150", "694694694");
+
+            // add data to the repository
+            dr.Create(reader);
+            dr.Create(reader1);
+            dr.Create(reader2);
+
+            // create a dictionary of books
+            List<Reader> rds = new List<Reader>();
+
+            // assign thr result of the FilterBooks function to the new Dictionary
+            rds = dr.FilterReaders("694954694");
+
+            // expected value: true
+            Assert.AreEqual(dr.showFilteredReaders(rds), "1. Name and surname: Przemyslaw Gesieniec, Adress: Osterwy 152, Telephone Number: 694954694");
+        }
     }
 }
     
