@@ -167,6 +167,17 @@ namespace TechProgBPPG
             else return null;
         }
 
+        public ObservableCollection<Rent> FilterRents (string expireDate)
+        {
+            ObservableCollection<Rent> rnts = new ObservableCollection<Rent>();
+            foreach(var rent in rents)
+            {
+                if (rent.expireDate.Equals(expireDate)) rnts.Add(rent);
+            }
+            if (rnts.Count != 0) return rnts;
+            else return null;
+        }
+
         // show filtered containers
         public string showFilteredBooks(Dictionary<int, Book> books)
         {
@@ -186,6 +197,14 @@ namespace TechProgBPPG
             for (int i = 0; i < readers.Count; i++)
                 answer += (i + 1).ToString() + ". Name and surname: " + readers[i].NameSurname + ", Adress: " + readers[i].Adress + ", Telephone Number: " +
                     readers[i].NrTel; // + ", Rented books: \n";
+            return answer;
+        }
+
+        public string showFilteredRents(ObservableCollection<Rent> rnts)
+        {
+            string answer = "";
+            for (int i = 0; i < rnts.Count; i++)
+                answer += (i + 1).ToString() + ". Is rented: " + rnts[i].ifRented + ", expire date: " + rnts[i].expireDate + "\n";
             return answer;
         }
 

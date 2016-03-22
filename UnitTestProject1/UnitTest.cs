@@ -2,6 +2,7 @@
 using TechProgBPPG;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace UnitTestProject1
 {
@@ -49,8 +50,6 @@ namespace UnitTestProject1
             //expected value: true
 
             Assert.AreEqual(dr.Read(r), r);
-            //Assert.AreEqual(dr.Read(book), book);
-            //Assert.AreEqual(dr.Read(1), book.ID);
             Assert.AreEqual(dr.Read(1), book);
             Assert.AreEqual(dr.Read(rent), rent);
         }
@@ -112,7 +111,7 @@ namespace UnitTestProject1
             // create a dispository
             DataRepository dr = new DataRepository();
 
-            // create data
+            // create data (Books)
             Book book = new Book(1, "The Shining", "King, Stephen");
             Book book1 = new Book(2, "Pet Cemetery", "King, Stephen");
             Book book2 = new Book(3, "Symfonia C++", "Grebosz, Jerzy");
@@ -130,6 +129,34 @@ namespace UnitTestProject1
             // expected value: true
             Assert.AreEqual(dr.FilterBooks("King, Stephen").Count, 2);
             Assert.AreEqual(dr.FilterBooks("Barker, Steve"), null);
+
+            // create data (Readers)
+            Reader reader = new Reader("Bartosz Pietrzak", "Smetany 99", "694694694");
+            Reader reader1 = new Reader("Przemyslaw Gesieniec", "Osterwy 152", "694954694");
+            Reader reader2 = new Reader("Bartosz Pietrzak", "Smetany 150", "694694694");
+
+            // add data to the repository
+            dr.Create(reader);
+            dr.Create(reader1);
+            dr.Create(reader2);
+
+            // expected value: true
+            Assert.AreEqual(dr.FilterReaders("694694694").Count, 2);
+            Assert.AreEqual(dr.FilterReaders("11111111"), null);
+
+            //create data (Rents)
+            Rent rent = new Rent(true, "03/06/2016");
+            Rent rent1 = new Rent(true, "06/06/2016");
+            Rent rent2 = new Rent(true, "03/06/2016");
+
+            //add data to the repository
+            dr.Create(rent);
+            dr.Create(rent1);
+            dr.Create(rent2);
+
+            // expected value: true
+            Assert.AreEqual(dr.FilterRents("03/06/2016").Count, 2);
+            Assert.AreEqual(dr.FilterRents("01/01/2001"), null);
         }
         [TestMethod]
         public void showFilteredBooksTest()
@@ -172,14 +199,38 @@ namespace UnitTestProject1
             dr.Create(reader1);
             dr.Create(reader2);
 
-            // create a dictionary of books
+            // create a list of readers
             List<Reader> rds = new List<Reader>();
 
-            // assign thr result of the FilterBooks function to the new Dictionary
+            // assign thr result of the FilterReaders function to the new List
             rds = dr.FilterReaders("694954694");
 
             // expected value: true
             Assert.AreEqual(dr.showFilteredReaders(rds), "1. Name and surname: Przemyslaw Gesieniec, Adress: Osterwy 152, Telephone Number: 694954694");
+        }
+        [TestMethod]
+        public void showFilteredRentsTest()
+        {
+            // create a dispository
+            DataRepository dr = new DataRepository();
+
+            // create data
+            Rent rent = new Rent(true, "03/06/2016");
+            Rent rent1 = new Rent(true, "06/06/2016");
+            Rent rent2 = new Rent(true, "03/06/2016");
+
+            // add data to the repository
+            dr.Create(rent);
+            dr.Create(rent1);
+            dr.Create(rent2);
+
+            // create an ObservableCollection of Rents
+            ObservableCollection <Rent> rnts = new ObservableCollection<Rent>();
+
+            rnts = dr.FilterRents("06/06/2016");
+
+            // expected value: true
+            Assert.AreEqual(dr.showFilteredRents(rnts), "1. Is rented: True, expire date: 06/06/2016\n");
         }
     }
 }
