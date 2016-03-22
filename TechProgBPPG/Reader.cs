@@ -16,6 +16,7 @@ namespace TechProgBPPG
             this.nrTel = nrTel;
             readersBooks = new Dictionary<int, Book>();
             Console.WriteLine("A reader named: {0} was created", nameSurname);
+            Console.WriteLine("testpoaczenia");
         }
 
         // fields
