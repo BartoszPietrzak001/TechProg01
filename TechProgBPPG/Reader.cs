@@ -11,17 +11,17 @@ namespace TechProgBPPG
         // constructor
         public Reader(string nameSurname, string adress, string nrTel)
         {
-            this.nameSurname = nameSurname;
-            this.adress = adress;
-            this.nrTel = nrTel;
+            _nameSurname = nameSurname;
+            _adress = adress;
+            _nrTel = nrTel;
             readersBooks = new Dictionary<int, Book>();
             Console.WriteLine("A reader named: {0} was created", nameSurname);
         }
 
         // fields
-        private string nameSurname { get; set; }
-        private string adress { get; set; }
-        private string nrTel { get; set; }
+        private string _nameSurname { get; set; }
+        private string _adress { get; set; }
+        private string _nrTel { get; set; }
 
         // container of books rented by a reader
         public Dictionary<int, Book> readersBooks;
@@ -38,37 +38,37 @@ namespace TechProgBPPG
         } 
 
         // get; set;
-        public string NameSurname
+        public string nameSurname
         {
             get
             {
-                return nameSurname;
+                return _nameSurname;
             }
             set
             {
-                nameSurname = value;
+                _nameSurname = value;
             }
         }
-        public string Adress
+        public string adress
         {
             get
             {
-                return adress;
+                return _adress;
             }
             set
             {
-                adress = value;
+                _adress = value;
             }
         }
-        public string NrTel
+        public string nrTel
         {
             get
             {
-                return nrTel;
+                return _nrTel;
             }
             set
             {
-                nrTel = value;
+                _nrTel = value;
             }
 
         }

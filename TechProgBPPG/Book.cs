@@ -11,10 +11,9 @@ namespace TechProgBPPG
         // constructor
         public Book (int ID, string title, string author)
         {
-            this._ID = ID;
-            this._title = title;
-            this._author = author;
-            Console.WriteLine("Our library has a new book in its collection: {0}, {1}, {2}", _ID, _title, _author);
+            _ID = ID;
+            _title = title;
+            _author = author;
             _r = new Rent(false, "--");
             Console.WriteLine(returnBook());
         }
@@ -73,7 +72,6 @@ namespace TechProgBPPG
             }
         }
 
-        //public void addRent(Rent rent)
         // methods
         public string returnBook()
         { 

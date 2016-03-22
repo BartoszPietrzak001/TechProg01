@@ -100,9 +100,9 @@ namespace UnitTestProject1
             //add the book to the reader
             //expected value: true
 
-            foreach (var reader in dr.readers)
+            foreach (var reader in dr.Readers)
             {
-                if (reader.NameSurname == r.NameSurname) Assert.IsTrue(reader.addBook(book));
+                if (reader.nameSurname == r.nameSurname) Assert.IsTrue(reader.addBook(book));
             }
         }
         [TestMethod]

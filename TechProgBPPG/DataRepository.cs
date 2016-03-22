@@ -10,9 +10,18 @@ namespace TechProgBPPG
     public class DataRepository
     {
         // data containers
-        public List<Reader> readers;
-        public Dictionary<int, Book> books;
-        public ObservableCollection <Rent> rents;
+        private List<Reader> readers;
+        private Dictionary<int, Book> books;
+        private ObservableCollection <Rent> rents;
+
+        // List<Reader> readers get method (no other neccessary)
+        public List<Reader> Readers
+        {
+            get
+            {
+                return readers;
+            }
+        }
         
         // constructor
         public DataRepository()
@@ -161,7 +170,7 @@ namespace TechProgBPPG
             List<Reader> filteredReaders = new List<Reader>();
             foreach (var reader in readers)
             {
-                if (reader.NrTel.Equals(telNr)) filteredReaders.Add(reader);
+                if (reader.nrTel.Equals(telNr)) filteredReaders.Add(reader);
             }
             if (filteredReaders.Count != 0) return filteredReaders;
             else return null;
@@ -195,8 +204,8 @@ namespace TechProgBPPG
         {
             string answer = "";
             for (int i = 0; i < readers.Count; i++)
-                answer += (i + 1).ToString() + ". Name and surname: " + readers[i].NameSurname + ", Adress: " + readers[i].Adress + ", Telephone Number: " +
-                    readers[i].NrTel; // + ", Rented books: \n";
+                answer += (i + 1).ToString() + ". Name and surname: " + readers[i].nameSurname + ", Adress: " + readers[i].adress + ", Telephone Number: " +
+                    readers[i].nrTel; // + ", Rented books: \n";
             return answer;
         }
 
