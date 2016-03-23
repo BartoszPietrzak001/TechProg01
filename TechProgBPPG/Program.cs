@@ -10,6 +10,17 @@ namespace TechProgBPPG
     {
         static void Main(string[] args)
         {
+            FillDataRepository data = new FillDataRepository();
+            DataRepository repository = new DataRepository(data);
+
+            List<Reader> list = repository.FilterReaders("694694694");
+
+            Console.WriteLine("Show me readers: ");
+            Console.WriteLine(repository.showFilteredReaders(list));
+
+            Console.ReadKey();
+
+
             //DataRepository dr = new DataRepository();
             //Reader r = new Reader("Bartosz Pietrzak", "Smetany 99", "694694694");
             //Book book = new Book(1, "The Shining", "King, Stephen");

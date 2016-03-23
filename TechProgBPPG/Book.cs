@@ -10,8 +10,7 @@ namespace TechProgBPPG
     {
         // constructor
         public Book (int ID, string title, string author)
-        {
-            _ID = ID;
+        { 
             _title = title;
             _author = author;
             _r = new Rent(false, "--");
@@ -19,7 +18,6 @@ namespace TechProgBPPG
         }
 
         // fields
-        private int _ID { get; set; }
         private string _title { get; set; }
         private string _author { get; set; }
         private Rent _r { get; set; }
@@ -34,19 +32,6 @@ namespace TechProgBPPG
             set
             {
                 _r = value;
-            }
-        }
-
-
-        public int ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                _ID = value;
             }
         }
         public string title

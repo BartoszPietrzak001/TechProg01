@@ -34,12 +34,21 @@ namespace TechProgBPPG
         private Dictionary<int, Book> books;
         private ObservableCollection <Rent> rents;
 
-        // List<Reader> readers get method (no other neccessary)
+        // List<Reader> readers get method 
+        // Dictionary<Book> get method s(no other neccessary)
         public List<Reader> Readers
         {
             get
             {
                 return readers;
+            }
+        }
+
+        public Dictionary<int, Book> Books
+        {
+            get
+            {
+                return books;
             }
         }
 
