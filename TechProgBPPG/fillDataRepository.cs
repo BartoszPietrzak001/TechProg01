@@ -12,14 +12,12 @@ namespace TechProgBPPG
 
         void DataInterface.fillBookDictionary(Dictionary<int, Book> bookDictionary)
         {
-            // uniezaleznic book ID od book
-            Book book = new Book(1, "The Shining", "King, Stephen");
-            Book book1 = new Book(2, "Symfonia C++", "Grębosz, Jerzy");
-            Book book2 = new Book(3, "Pet Cemetery", "King, Stephen");
-
-            bookDictionary.Add(book.ID, book);
-            bookDictionary.Add(book1.ID, book1);
-            bookDictionary.Add(book2.ID, book2);
+            Book book = new Book(bookDictionary.Count+1, "The Shining", "King, Stephen");
+            bookDictionary.Add(bookDictionary.Count+1, book);
+            Book book1 = new Book(bookDictionary.Count + 1, "Symfonia C++", "Grębosz, Jerzy");
+            bookDictionary.Add(bookDictionary.Count + 1, book1);
+            Book book2 = new Book(bookDictionary.Count + 1, "Pet Cemetery", "King, Stephen");
+            bookDictionary.Add(bookDictionary.Count + 1, book2);
         }
 
         void DataInterface.fillReadersList(List<Reader> readerList)

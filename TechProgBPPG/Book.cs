@@ -60,7 +60,7 @@ namespace TechProgBPPG
         // methods
         public string returnBook()
         { 
-            return "A book of ID: " + _ID + " entitled: " + _title + ", author: " + _author + ", rented: " + _r.ifRented + ", expire date: " + _r.expireDate + " is in our library \n";
+            return "A book entitled: " + _title + ", author: " + _author + ", rented: " + _r.ifRented + ", expire date: " + _r.expireDate + " is in our library \n";
         }
     }
 }

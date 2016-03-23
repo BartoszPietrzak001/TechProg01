@@ -29,9 +29,9 @@ namespace TechProgBPPG
         // add a book to a container
         public bool addBook(Book b)
         {
-            if(!readersBooks.ContainsKey(b.ID))
+            if(!readersBooks.ContainsValue(b))
             {
-                readersBooks.Add(b.ID, b);
+                readersBooks.Add(readersBooks.Count+1, b);
                 return true;
             }
             return false;

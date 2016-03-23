@@ -120,8 +120,8 @@ namespace UnitTestProject1
 
             // create a list of books (capacity = 2 --> 2 books expected in a list returned by Filter method)
             Dictionary<int, Book> bks = new Dictionary<int, Book>(2);
-            bks.Add(book.ID, book);
-            bks.Add(book1.ID, book1);
+            bks.Add(bks.Count+1, book);
+            bks.Add(bks.Count+1, book1);
 
             // expected value: true
             Assert.AreEqual(dr.FilterBooks("King, Stephen").Count, 2);
@@ -201,7 +201,7 @@ namespace UnitTestProject1
             rds = dr.FilterReaders("694954694");
 
             // expected value: true
-            Assert.AreEqual(dr.showFilteredReaders(rds), "1. Name and surname: Przemyslaw Gesieniec, Adress: Osterwy 152, Telephone Number: 694954694");
+            Assert.AreEqual(dr.showFilteredReaders(rds), "1. Name and surname: Przemyslaw Gesieniec, Adress: Osterwy 152, Telephone Number: 694954694\n");
         }
         [TestMethod]
         public void showFilteredRentsTest()

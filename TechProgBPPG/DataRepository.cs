@@ -67,9 +67,9 @@ namespace TechProgBPPG
 
         public bool Create(Book bk)
         {
-            if (!books.ContainsKey(bk.ID)) //as to avoid runtime error
+            if (!books.ContainsValue(bk)) //as to avoid runtime error
             {
-                books.Add(bk.ID, bk);
+                books.Add(books.Count+1, bk);
                 ifSuccessful(true);
                 return true;
             }
@@ -113,11 +113,11 @@ namespace TechProgBPPG
 
         public Book Read (Book bk)
         {
-            if (books.ContainsKey(bk.ID))
+            if (books.ContainsValue(bk))
             {
-                foreach(var id in books.Keys)
+                foreach(var value in books.Values)
                 {
-                    if (bk.ID.Equals(id)) return books[id];
+                    if (bk.title.Equals(value.title)) return value;
                 }
             }
             return null;
@@ -149,9 +149,9 @@ namespace TechProgBPPG
         {
             foreach (var book in books)
             {
-                if (book.Key == bk.ID)
+                if (book.Value.title == bk.title)
                 {
-                    books.Remove(bk.ID);
+                    books.Remove(book.Key);
                     ifSuccessful(true);
                     return true;
                 }
@@ -225,7 +225,7 @@ namespace TechProgBPPG
             string answer = "";
             for (int i = 0; i < readers.Count; i++)
                 answer += (i + 1).ToString() + ". Name and surname: " + readers[i].nameSurname + ", Adress: " + readers[i].adress + ", Telephone Number: " +
-                    readers[i].nrTel; // + ", Rented books: \n";
+                    readers[i].nrTel + "\n"; // + ", Rented books: \n";
             return answer;
         }
 
