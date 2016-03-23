@@ -9,6 +9,7 @@ namespace TechProgBPPG
 {
     public class FillDataRepository : DataInterface
     {
+
         void DataInterface.fillBookDictionary(Dictionary<int, Book> bookDictionary)
         {
             // uniezaleznic book ID od book

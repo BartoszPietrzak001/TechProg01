@@ -13,8 +13,8 @@ namespace UnitTestProject1
         public void CreateTest()
         {
             //create repository and data
-
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
             Reader r = new Reader("Bartosz Pietrzak", "Smetany 3", "694145623");
             Book book = new Book(1, "The Shining", "King, Stephen");
             Rent rent = new Rent(true, "02/05/2016");
@@ -36,7 +36,8 @@ namespace UnitTestProject1
         {
             //create repository and data
 
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
             Reader r = new Reader("Bartosz Pietrzak", "Smetany 3", "694145623");
             Book book = new Book(1, "The Shining", "King, Stephen");
             Rent rent = new Rent(true, "02/05/2016");
@@ -58,7 +59,8 @@ namespace UnitTestProject1
         {
             //create repository and data
 
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
             Reader r = new Reader("Bartosz Pietrzak", "Smetany 3", "694145623");
             Book book = new Book(1, "The Shining", "King, Stephen");
             Rent rent = new Rent(true, "03/05/2016");
@@ -88,7 +90,8 @@ namespace UnitTestProject1
         {
             //create repository and data
 
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
             Reader r = new Reader("Bartosz Pietrzak", "Smetany 3", "694145623");
             Book book = new Book(1, "The Shining", "King, Stephen");
 
@@ -109,7 +112,8 @@ namespace UnitTestProject1
         public void FilterTest()
         {
             // create a dispository
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
 
             // create data (Books)
             Book book = new Book(1, "The Shining", "King, Stephen");
@@ -162,7 +166,8 @@ namespace UnitTestProject1
         public void showFilteredBooksTest()
         {
             // create a dispository
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
 
             // create data
             Book book = new Book(1, "The Shining", "King, Stephen");
@@ -187,7 +192,8 @@ namespace UnitTestProject1
         public void showFilteredReadersTest()
         {
             // create a dispository
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
 
             // create data
             Reader reader = new Reader("Bartosz Pietrzak", "Smetany 99", "694694694");
@@ -212,7 +218,8 @@ namespace UnitTestProject1
         public void showFilteredRentsTest()
         {
             // create a dispository
-            DataRepository dr = new DataRepository();
+            FillDataRepository fillData = new FillDataRepository();
+            DataRepository dr = new DataRepository(fillData);
 
             // create data
             Rent rent = new Rent(true, "03/06/2016");

@@ -10,14 +10,24 @@ namespace TechProgBPPG
     public class DataRepository
     {
         // constructors
-       // public DataRepository() { }
 
-        //public DataRepository (DataInterface dI)
-        //{
-        //    dI.fillReadersList(readers);
-        //    dI.fillBookDictionary(books);
-        //    dI.fillRentObservableCollection(rents);
-        //}
+        public DataRepository()
+        {
+            readers = new List<Reader>();
+            books = new Dictionary<int, Book>();
+            rents = new ObservableCollection<Rent>();
+            Console.WriteLine("Data repository of {0}, {1} and {2} created.", nameof(readers), nameof(books), nameof(rents));
+        }
+
+        public DataRepository(DataInterface dI)
+        {
+            readers = new List<Reader>();
+            books = new Dictionary<int, Book>();
+            rents = new ObservableCollection<Rent>();
+            dI.fillReadersList(readers);
+            dI.fillBookDictionary(books);
+            dI.fillRentObservableCollection(rents);
+        }
 
         // data containers
         private List<Reader> readers;
@@ -31,15 +41,6 @@ namespace TechProgBPPG
             {
                 return readers;
             }
-        }
-        
-        // constructor
-        public DataRepository()
-        {
-            readers = new List<Reader>();
-            books = new Dictionary<int, Book>();
-            rents = new ObservableCollection<Rent>();
-            Console.WriteLine("Data repository of {0}, {1} and {2} created.", nameof(readers), nameof(books), nameof(rents));
         }
 
         // create methods
