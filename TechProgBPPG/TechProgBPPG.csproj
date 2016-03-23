@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FillDataRepository.cs" />
+    <Compile Include="DataInterface.cs" />
     <Compile Include="Rent.cs" />
     <Compile Include="DataRepository.cs" />
     <Compile Include="Reader.cs" />

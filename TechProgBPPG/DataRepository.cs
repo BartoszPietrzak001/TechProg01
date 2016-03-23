@@ -9,6 +9,16 @@ namespace TechProgBPPG
 {
     public class DataRepository
     {
+        // constructors
+       // public DataRepository() { }
+
+        //public DataRepository (DataInterface dI)
+        //{
+        //    dI.fillReadersList(readers);
+        //    dI.fillBookDictionary(books);
+        //    dI.fillRentObservableCollection(rents);
+        //}
+
         // data containers
         private List<Reader> readers;
         private Dictionary<int, Book> books;
