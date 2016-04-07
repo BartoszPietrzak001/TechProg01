@@ -16,26 +16,34 @@ namespace TechProgBPPG
             readers = new List<Reader>();
             books = new Dictionary<int, Book>();
             rents = new ObservableCollection<Rent>();
-            Console.WriteLine("Data repository of {0}, {1} and {2} created.", nameof(readers), nameof(books), nameof(rents));
+            expireDates = new List<string>();
+#if DEBUG
+            Console.WriteLine("Data repository of {0}, {1}, {2} and {3} created.", nameof(readers), nameof(books), nameof(rents), nameof(expireDates));
+#endif
         }
 
         public DataRepository(DataInterface dI)
         {
             readers = new List<Reader>();
+            expireDates = new List<string>();
             books = new Dictionary<int, Book>();
             rents = new ObservableCollection<Rent>();
-            dI.fillReadersList(readers);
-            dI.fillBookDictionary(books);
-            dI.fillRentObservableCollection(rents);
+            dI.FillExpireDateList(this);
+            dI.FillBookDictionary(this);
+            dI.FillReadersList(this);
+            dI.FillRentsWithData(this);
         }
 
         // data containers
         private List<Reader> readers;
         private Dictionary<int, Book> books;
         private ObservableCollection <Rent> rents;
+        private List<string> expireDates;
 
         // List<Reader> readers get method 
-        // Dictionary<Book> get method s(no other neccessary)
+        // Dictionary<Book> get method
+        // Observablecollection<Rent> get method 
+        // List<string> expireDates get method(no other neccessary)
         public List<Reader> Readers
         {
             get
@@ -52,45 +60,61 @@ namespace TechProgBPPG
             }
         }
 
+        public ObservableCollection<Rent> Rents
+        {
+            get
+            {
+                return rents;
+            }
+        }
+
+        public List<string> ExpireDates
+        {
+            get
+            {
+                return expireDates;
+            }
+        }
+
         // create methods
-        public bool Create(Reader r)
+        public bool CreateReader(Reader r)
         {
             if (!readers.Contains(r)) //as not to duplicate information
             {
                 readers.Add(r);
-                ifSuccessful(true);
                 return true;
             }
-            ifSuccessful(false);
             return false;
         }
 
-        public bool Create(Book bk)
+        public bool CreateBook(Book bk)
         {
             if (!books.ContainsValue(bk)) //as to avoid runtime error
             {
                 books.Add(books.Count+1, bk);
-                ifSuccessful(true);
                 return true;
             }
-            ifSuccessful(false);
             return false;
         }
 
-        public bool Create(Rent rent)
+        public bool CreateRent(Rent rent)
         {
             if (!rents.Contains(rent))
             {
                 rents.Add(rent);
-                ifSuccessful(true);
                 return true;
             }
-            ifSuccessful(false);
             return false;
         }
 
+        public bool CreateExpireDate(string expDate)
+        {
+            expireDates.Add(expDate);
+            return true;
+        }
+
         // read methods
-        public Reader Read (Reader r)
+        public Reader ReadReader(Reader r)
         {
             foreach(var reader in readers)
             {
@@ -99,7 +123,7 @@ namespace TechProgBPPG
             return null;
         }
 
-        public Book Read (int ID)
+        public Book ReadBook(int ID)
         {
             if (books.ContainsKey(ID))
             {
@@ -111,7 +135,7 @@ namespace TechProgBPPG
             return null;
         }
 
-        public Book Read (Book bk)
+        public Book ReadBook(Book bk)
         {
             if (books.ContainsValue(bk))
             {
@@ -123,7 +147,7 @@ namespace TechProgBPPG
             return null;
         }
 
-        public Rent Read (Rent rent)
+        public Rent ReadRent(Rent rent)
         {
             foreach(var rnt in rents)
             {
@@ -133,115 +157,37 @@ namespace TechProgBPPG
         }
 
         // delete methods
-        public bool Delete (Reader r)
+        public bool DeleteReader(Reader r)
         {
             foreach (var reader in readers)
             {
                 if (reader == r) readers.Remove(r);
-                ifSuccessful(true);
                 return true;
             }
-            ifSuccessful(false);
             return false;
         }
 
-        public bool Delete (Book bk)
+        public bool DeleteBook(Book bk)
         {
             foreach (var book in books)
             {
                 if (book.Value.title == bk.title)
                 {
                     books.Remove(book.Key);
-                    ifSuccessful(true);
                     return true;
                 }
             }
-            ifSuccessful(false);
             return false;
         }
 
-        public bool Delete (Rent rent)
+        public bool DeleteRent(Rent rent)
         {
             foreach (var rnt in rents)
             {
                 if (rnt == rent) rents.Remove(rent);
-                ifSuccessful(true);
                 return true;
             }
-            ifSuccessful(false);
             return false;
-        }
-
-        // filter methods
-        public Dictionary<int, Book> FilterBooks (string bookAuthor)
-        {
-            Dictionary<int, Book> bks = new Dictionary<int, Book>();
-            foreach (var book in books)
-            {
-                if (book.Value.author.Equals(bookAuthor)) bks.Add(book.Key, book.Value);
-                
-            }
-            if (bks.Count != 0) return bks;
-            else return null;
-        }
-
-        public List<Reader> FilterReaders(string telNr)
-        {
-            List<Reader> filteredReaders = new List<Reader>();
-            foreach (var reader in readers)
-            {
-                if (reader.nrTel.Equals(telNr)) filteredReaders.Add(reader);
-            }
-            if (filteredReaders.Count != 0) return filteredReaders;
-            else return null;
-        }
-
-        public ObservableCollection<Rent> FilterRents (string expireDate)
-        {
-            ObservableCollection<Rent> rnts = new ObservableCollection<Rent>();
-            foreach(var rent in rents)
-            {
-                if (rent.expireDate.Equals(expireDate)) rnts.Add(rent);
-            }
-            if (rnts.Count != 0) return rnts;
-            else return null;
-        }
-
-        // show filtered containers
-        public string showFilteredBooks(Dictionary<int, Book> books)
-        {
-            int i = 1;
-            string answer = "";
-            foreach (var book in books)
-            {
-                answer += i.ToString() + ". Title: " + book.Value.title + ", Author: " + book.Value.author + "\n";
-                i++;
-            }
-            return answer;
-        }
-
-        public string showFilteredReaders(List<Reader> readers)
-        {
-            string answer = "";
-            for (int i = 0; i < readers.Count; i++)
-                answer += (i + 1).ToString() + ". Name and surname: " + readers[i].nameSurname + ", Adress: " + readers[i].adress + ", Telephone Number: " +
-                    readers[i].nrTel + "\n"; // + ", Rented books: \n";
-            return answer;
-        }
-
-        public string showFilteredRents(ObservableCollection<Rent> rnts)
-        {
-            string answer = "";
-            for (int i = 0; i < rnts.Count; i++)
-                answer += (i + 1).ToString() + ". Is rented: " + rnts[i].ifRented + ", expire date: " + rnts[i].expireDate + "\n";
-            return answer;
-        }
-
-        // check if the operation was successful
-        private void ifSuccessful(bool x)
-        {
-            if (x == true) Console.WriteLine("Operation finished successfully");
-            else Console.WriteLine("An error occured");
         }
     }
 }
