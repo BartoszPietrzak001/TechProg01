@@ -1,0 +1,154 @@
+Readers:
+Bartosz Pietrzak;ul. Bartoka 123;0011223345;
+Przemyslaw Gesieniec;ul. Osterwy 109;9988877766;
+Jan Kowalski;ul. Marszalkowska 999;0102030405;
+Fryderyka Rutkowska;ul. Hallera 99;781248624
+Józefa Zawadzka;ul. 15 Sierpnia 13;151651216;
+Lucjusz Olszewski;Al. Planetarium 44;1868455156;
+Zdzis³awa Wo?niak;ul. Ko?ciuszkowców 88;7593654841;
+S³awomira Chmielewsk;ul. D³ugosza Jana 25;38101961144;
+Klemens Jab³oñski;ul. Pó³nocna 93;94080361557;
+Stefcia Adamczyk;ul. Cmentarna 51;51051605805;
+Henryka Nowakowska;ul. Sk³odowskiej Curie Marii 28;57120955460;
+Zachariasz Gorski;ul. Fiszera Stanis³awa 22;80020237998;
+Hipolit Majewski;ul. Stoczni Gdañskiej 69;8965748965;
+Albina Walczak;ul. Szeroka 44;68101670883;
+Cibor Paw³owski;Pl. Szembeka Piotra 86;35072564196;
+Tadzio Wo?niak;ul. Sienkiewicza Henryka 111;7896541258;
+Beatrycze Grabowska;ul. Cedyñska 132;89032773344;
+Mateusz Kucharski;ul. Stefana Batorego 26;76110388118;
+Eligia Adamczyk;ul. Poetów 56;5468953276;
+Wiola Wojciechowska;ul. Daktylowa 1386904421;
+Ma³gorzata Kowalczyk;ul. Króla Boles³awa Chrobrego 43;95120523104;
+Marcin Zielinski;ul. Aleje Jerozolimskie 112;33022757139;
+Micha³ Grabowski;ul. Kosmiczna 47;90112057975;
+Edyta Grabowska;ul. Kalinowa 57;84080384700;
+Marek Zielinski;ul. Rzewiñska 140;47050332194;
+Stanis³awa Kowalska;ul. Retmañska 75;31102168886;
+Ela Pawlak;ul. Wilcza 15;68090676602;
+Gawe³ Kalinowski;ul. Spó³dzielcza 92;65042308376;
+Aureliusz Kamiñski;ul. Brama Oliwska 32;84020346612;
+Ma³gorzata Symanska;ul. Przetoczna 113;78945685444;
+Judyta Szczepañska;ul. Na Koz³ówce 131;94092264729;
+Longin Kucharski;ul. Gipsowa 52;55092718618;
+Ela Olszewska;ul. Kurpiowska 25;90030888484;
+Serafina Chmielewska;ul. Zwyciêstwa 137;73082030146;
+Egidiusz Jasiñski;ul. Odleg³a 52;45061885131;
+Hipolit Jaworski;ul. Warmiñska 82;84121931816;
+Tobiasz Wo?niak;ul. Pograniczna 119;73012806173;
+Les³awa Duda;ul. Lipowa 114;34061579241;
+Klaudia Kaczmarek;ul. Na Borach 7;77082839569;
+Krystyna Sawicka;ul. Osuchowska 89;63120946384;
+Benedykta Jasiñska;ul. Modrzejewskiej Heleny 138;44122105146;
+Celestyn Sobczak;ul. S³owackiego Juliusza 21;40090786097;
+Tytus Paw³owski;Pl. ?wiêtego Jana 71;53080711755;
+Bogus³awa Sobczak;ul. Portowa 147;92012646400;
+Jadzia Piotrowska;ul. Przejazd 54;65102071002;
+Agnieszka Zielinska;ul. Rewolucji 1905 r. 16;43092581042;
+Wisia Symanska;ul. Lniana 13;60111002405;
+Bazyli Wo?niak;ul. Profesora Karnickiej Haliny 40;66091896355;
+Kondrat Jaworski;ul. Królowej Jadwigi 61;54081955232;
+Bonifacy Wojciechowski;ul. Artylerzystów 130;65100905833;
+Expire Dates:
+01/04/2016
+
+02/04/2016
+03/04/2016
+04/04/2016
+05/04/2017
+06/04/2016
+17/04/2016
+08/04/2016
+09/04/2016
+02/05/2017
+03/12/2016
+04/06/2016
+08/11/2016
+11/10/2017
+14/04/2016
+16/09/2016
+18/08/2017
+19/07/2016
+03/06/2016
+02/10/2016
+03/11/2016
+08/11/2016
+11/10/2016
+14/04/2016
+18/09/2016
+28/11/2016
+19/10/2016
+24/04/2016
+16/09/2016
+08/11/2016
+31/01/2017
+14/04/2017
+16/09/2017
+08/11/2017
+11/10/2017
+14/04/2017
+16/09/2017
+05/04/2016
+25/04/2016
+22/04/2016
+18/04/2018
+09/04/2016
+12/04/2016
+14/04/2016
+17/04/2017
+08/04/2016
+19/04/2016
+05/04/2016
+12/04/2016
+27/04/2016
+Books:
+Pet Cemetery;King, Stephen;
+Call of Cthulu;Lovecraft, H.P.;
+Ruins;Smith, Scott;
+Pet Cemetery;King, Stephen;
+Pet Cemetery;King, Stephen;
+W³adca Pier?cieni;JRR Tolkien;
+Jane Eyre;Charlotte Bronte ;
+Harry Potter i czara ognia;JK Rowling; 
+Zabiæ drozda;Harper Lee;  
+Wichrowe Wzgórza;Emily Bronte;
+Rok 1984;George Orwell;  
+Mroczne materie;Philip Pullman;
+Wielkie nadzieje;Charles Dickens;
+Ma³e kobietki;Louisa M Alcott;
+Tessa D?Urberville;Thomas Hardy;
+Paragraf 22;Joseph Heller; 
+Rebeka;Daphne Du Maurier;
+Hobbit;JRR Tolkien;
+Birdsong;Sebastian Faulks;
+Buszujšcy w zbo¿u;JD Salinger;
+¯ona podró¿nika w czasie;Audrey Niffenegger;
+Miasteczko Middlemarch;George Eliot;
+Przeminê³o z wiatrem;Margaret Mitchell;
+Wielki Gatsby;Scott Fitzgerald;
+Wojna i pokój;Lew To³stoj;
+Autostopem przez Galaktykê;Douglas Adams;
+Znowu w Brideshead;Evelyn Waugh;
+Zbrodnia i kara;Fiodor Dostojewski;
+Grona gniewu;John Steinbeck ;
+Alicja w Krainie Czarów;Lewis Carroll;
+O czym szumiš wierzby;Kenneth Grahame;
+Anna Karenina;Lew To³stoj;
+David Copperfield;Charles Dickens;
+Emma;Jane Austen; 
+Perswazje;Jane Austen;
+Lew, Czarwnica i Stara Szafa;CS Lewis; 
+Sto lat samotno?ci;Gabriel Garcia Marquez;
+Modlitwa za Owena;John Irving;
+Kobieta w bieli;Wilkie Collins;
+Ania z Zielonego Wzgórza;LM Montgomery;
+Z dala od zgie³ku;Thomas Hardy;
+Opowie?æ podrêcznej;Margaret Atwood;
+W³adca much;William Golding;
+Pokuta;Ian McEwan ;
+¯ycie Pi ;Yann Martel;
+W drodze;Jack Kerouac;
+Juda nieznany;Thomas Hardy;
+Dziennik Bridget Jones;Helen Fielding;
+Dzieci pó³nocy;Salman Rushdie;
+Moby Dick;Herman Melville;

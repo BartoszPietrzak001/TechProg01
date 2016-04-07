@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FillDataRepository.cs" />
+    <Compile Include="DataService.cs" />
+    <Compile Include="FillDataRepositoryFile.cs" />
+    <Compile Include="FillDataRepositoryStatic.cs" />
     <Compile Include="DataInterface.cs" />
     <Compile Include="Rent.cs" />
     <Compile Include="DataRepository.cs" />
@@ -54,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,8 +9,9 @@ namespace TechProgBPPG
 {
     public interface DataInterface
     {
-        void fillReadersList(List<Reader> readerList);
-        void fillBookDictionary(Dictionary<int, Book> bookDictionary);
-        void fillRentObservableCollection(ObservableCollection<Rent> rentCollection);
+        void FillReadersList(DataRepository dr);
+        void FillBookDictionary(DataRepository dr);
+        void FillExpireDateList(DataRepository dr);
+        void FillRentsWithData(DataRepository dr);
     }
 }

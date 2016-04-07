@@ -9,31 +9,21 @@ namespace TechProgBPPG
     public class Book
     {
         // constructor
-        public Book (int ID, string title, string author)
-        { 
+        public Book (string title, string author)
+        {
             _title = title;
             _author = author;
-            _r = new Rent(false, "--");
-            Console.WriteLine(returnBook());
+#if DEBUG
+            Console.WriteLine(ReturnBook());
+#endif
         }
+
 
         // fields
-        private string _title { get; set; }
-        private string _author { get; set; }
-        private Rent _r { get; set; }
+        private string _title;
+        private string _author;
 
         // get; set;
-        public Rent r
-        {
-            get
-            {
-                return _r;
-            }
-            set
-            {
-                _r = value;
-            }
-        }
         public string title
         {
             get
@@ -58,9 +48,9 @@ namespace TechProgBPPG
         }
 
         // methods
-        public string returnBook()
-        { 
-            return "A book entitled: " + _title + ", author: " + _author + ", rented: " + _r.ifRented + ", expire date: " + _r.expireDate + " is in our library \n";
+        public string ReturnBook()
+        {
+            return "A book entitled: " + _title + ", author: " + _author + "\n";
         }
     }
 }

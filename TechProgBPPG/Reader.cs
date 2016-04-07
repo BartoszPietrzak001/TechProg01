@@ -14,28 +14,15 @@ namespace TechProgBPPG
             _nameSurname = nameSurname;
             _adress = adress;
             _nrTel = nrTel;
-            readersBooks = new Dictionary<int, Book>();
+#if DEBUG 
             Console.WriteLine("A reader named: {0} was created", nameSurname);
+#endif
         }
 
         // fields
-        private string _nameSurname { get; set; }
-        private string _adress { get; set; }
-        private string _nrTel { get; set; }
-
-        // container of books rented by a reader
-        public Dictionary<int, Book> readersBooks;
-            
-        // add a book to a container
-        public bool addBook(Book b)
-        {
-            if(!readersBooks.ContainsValue(b))
-            {
-                readersBooks.Add(readersBooks.Count+1, b);
-                return true;
-            }
-            return false;
-        } 
+        private string _nameSurname;
+        private string _adress;
+        private string _nrTel;
 
         // get; set;
         public string nameSurname
@@ -71,6 +58,12 @@ namespace TechProgBPPG
                 _nrTel = value;
             }
 
+        }
+
+        // print a reader
+        public string PrintReader()
+        {
+            return ("A reader named: " + _nameSurname + ", adress: " + _adress + ", telephone number: " + _nrTel + "\n");
         }
     }
 }

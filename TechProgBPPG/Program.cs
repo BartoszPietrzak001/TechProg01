@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,49 +12,79 @@ namespace TechProgBPPG
     {
         static void Main(string[] args)
         {
-            FillDataRepository data = new FillDataRepository();
+            //FillDataRepositoryStatic data = new FillDataRepositoryStatic();
+            //DataRepository repository = new DataRepository(data);
+            //DataService dataservice = new DataService(repository);
+
+            //List<Reader> list = dataservice.FilterReaders("694694694");
+            //ObservableCollection<Rent> rents = dataservice.FilterRents("02/04/2016");
+
+            //Console.Write("Show me readers and books: ");
+            //Console.WriteLine(dataservice.ShowFilteredReaders(list));
+
+            //Console.WriteLine();
+
+            //Console.Write("Show me rents: ");
+            //Console.WriteLine(dataservice.ShowFilteredRents(rents));
+
+            //Console.WriteLine(dataservice.ShowAllData());
+
+            //Console.ReadKey();
+
+            //Console.WriteLine("-------------------------------------------------------");
+
+            FillDataRepositoryFile data = new FillDataRepositoryFile();
             DataRepository repository = new DataRepository(data);
+            DataService dataService = new DataService(repository);
 
-            List<Reader> list = repository.FilterReaders("694694694");
-
-            Console.WriteLine("Show me readers: ");
-            Console.WriteLine(repository.showFilteredReaders(list));
+            Console.WriteLine(dataService.ShowAllData());
 
             Console.ReadKey();
 
+            //Console.WriteLine("-----------------------------------------------------");
 
-            //DataRepository dr = new DataRepository();
-            //Reader r = new Reader("Bartosz Pietrzak", "Smetany 99", "694694694");
-            //Book book = new Book(1, "The Shining", "King, Stephen");
-            //Book book1 = new Book(2, "Symfonia C++", "Grębosz, Jerzy");
-            //Book book2 = new Book(3, "Pet Cemetery", "King, Stephen");
-            //Rent rent = new Rent(true, "02/05/2016");
+            //Stopwatch stopWatch = new Stopwatch();
 
-            //book.r = rent;
+            //stopWatch.Start();
 
-            //Console.WriteLine(book.returnBook());
+            //// create FillDataRepositoryStatic fillData object (inherits from DataInterface)
+            //FillDataRepositoryStatic fillData = new FillDataRepositoryStatic();
 
-            ////add data to repository
-            //Console.WriteLine("Adding a reader to the repository...");
-            //dr.Create(r);
-            //Console.WriteLine("Adding a book to the repository...");
-            //dr.Create(book);
-            //Console.WriteLine("Adding a book to the repository...");
-            //dr.Create(book1);
-            //Console.WriteLine("Adding a book to the repository...");
-            //dr.Create(book2);
+            //// create a repository using Dependency Injection pattern (pass FillDataRepositoryStatic object to DataRepository constructor)
+            //DataRepository repository = new DataRepository(fillData);
 
+            //// create a data service
+            //DataService ds = new DataService(repository);
 
-            //Console.WriteLine("Adding a book to the reader...");
+            //stopWatch.Stop();
 
-            //if (dr.Read(r) == r && dr.Read(book) == book) dr.Read(r).addBook(dr.Read(book));
-            //if (dr.Read(r) == r && dr.Read(book1) == book1) dr.Read(r).addBook(dr.Read(book1));
-            //if (dr.Read(r) == r && dr.Read(book2) == book2) dr.Read(r).addBook(dr.Read(book2));
+            //double staticTime = stopWatch.Elapsed.TotalMilliseconds;
 
-            //Dictionary<int, Book> bks = new Dictionary<int, Book>();
-            //bks =  dr.FilterBooks("King, Stephen");
+            //stopWatch.Reset();
 
-            //Console.WriteLine(dr.showFilteredBooks(bks));
+            //stopWatch.Start();
+
+            //// create FillDataRepositoryFile fileData object (inherits from DataInterface)
+            //FillDataRepositoryFile fileData = new FillDataRepositoryFile();
+
+            //// create a repository using Dependency Injection pattern (pass FillDataRepositoryFile object to DataRepository constructor)
+            //DataRepository dr = new DataRepository(fileData);
+
+            //// create a data service 
+            //DataService dataService = new DataService(dr);
+
+            //stopWatch.Stop();
+
+            //double fileTime = stopWatch.Elapsed.TotalMilliseconds;
+
+            //Console.WriteLine(staticTime);
+            //Console.WriteLine(fileTime);
+
+            //Book book = new Book("Me, Ozzy", "Osbourne, Ozzy");
+            //Reader reader = new Reader("Hello World", "xxxx", "yyyyy");
+            //Rent rent = new Rent(book, reader, "03/04/2016");
+
+            //repository.CreateRent(rent);
 
             //Console.ReadKey();
         }
