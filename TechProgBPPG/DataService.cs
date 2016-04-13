@@ -133,6 +133,28 @@ namespace TechProgBPPG
             else return null;
         }
 
+        // LINQ filter methods
+
+        public List<Reader> GetReadersWithSpecifiedTelNumber(string telNr)
+        {
+            var rds = from Reader in dr.Readers
+                      where Reader.nrTel == telNr
+                      orderby Reader.nameSurname
+                      select Reader;
+            List<Reader> filteredReaders = rds.ToList();
+            return filteredReaders;
+        }
+
+        public Dictionary<int, Book> GetBooksWithSpecifiedTitle(string title)
+        {
+            var bks = from Book in dr.Books
+                      where Book.Value.title == title
+                      orderby Book.Value.author
+                      select Book;
+            Dictionary<int, Book> filteredBooks = bks.ToDictionary(p => p.Key, p => p.Value); // czy litera ma znaczneie? czy powinny byc osobne dla key i value?
+            return filteredBooks;
+        }
+
         // show filtered containers
         public string ShowFilteredBooks(Dictionary<int, Book> books)
         {
